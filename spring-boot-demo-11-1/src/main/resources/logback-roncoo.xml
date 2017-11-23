@@ -41,8 +41,17 @@
 			</layout>
 		</appender>
 		
+		<appender name="CONSOLE" class="ch.qos.logback.core.ConsoleAppender">
+			<encoder>
+				<pattern>${PATTERN}</pattern>
+			</encoder>
+		</appender>
+		
+		<logger name="com.roncoo.education" level="debug"/>
+		
 		<root level="info">
 			<appender-ref ref="TEST-FILE" />
+			<appender-ref ref="CONSOLE" />
 		</root>
 	</springProfile>
 

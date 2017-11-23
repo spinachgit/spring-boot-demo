@@ -11,13 +11,11 @@ import org.springframework.web.servlet.ModelAndView;
 @ControllerAdvice
 public class BizExcepiton {
 
-	private static final Logger logger =  LoggerFactory.getLogger(BizExcepiton.class);
-	
+	private static final Logger logger = LoggerFactory.getLogger(BizExcepiton.class);
+
 	/**
 	 * 统一异常处理
-	 * 
-	 * @param exception
-	 *            exception
+	 * @param exception exception
 	 * @return
 	 */
 	@ExceptionHandler({ RuntimeException.class })
@@ -32,9 +30,7 @@ public class BizExcepiton {
 
 	/**
 	 * 统一异常处理
-	 * 
-	 * @param exception
-	 *            exception
+	 * @param exception exception
 	 * @return
 	 */
 	@ExceptionHandler({ Exception.class })

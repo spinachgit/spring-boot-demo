@@ -7,7 +7,7 @@
 </head>
 <body>
 	<center>
-		<img src="/images/logo.png" />
+		<!-- <img src="/images/logo.png" /> -->
 		<h1 id="title">${title}</h1>
 	</center>
 	

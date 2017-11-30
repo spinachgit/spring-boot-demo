@@ -1,4 +1,4 @@
-本项目为Spring Boot的基础教程，基于spring-boot-1.4.0.RELEASE
+本项目为Spring Boot的基础教程，基于spring-boot-1.5.8.RELEASE
 
 ###更多的源码请看教程视频，在教程视频对应的附件中提供
 

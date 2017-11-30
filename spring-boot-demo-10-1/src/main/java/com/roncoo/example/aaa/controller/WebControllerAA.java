@@ -1,4 +1,4 @@
-package com.roncoo.example.controller;
+package com.roncoo.example.aaa.controller;
 
 import java.io.File;
 import java.io.IOException;
@@ -29,11 +29,11 @@ import com.roncoo.example.util.intercepetor.entity.LogModel;
  * 
  * @date:2017年11月22日下午1:11:33
  */
-@RequestMapping("web")
+@RequestMapping("aaa")
 @Controller
-public class WebController {
+public class WebControllerAA {
 
-	private static final Logger logger = LoggerFactory.getLogger(WebController.class);
+	private static final Logger logger = LoggerFactory.getLogger(WebControllerAA.class);
 
 	@RequestMapping("index")
 	// @StringResult("aaa")
@@ -43,7 +43,6 @@ public class WebController {
 		map.put("title", "hello world");
 		return "index"; // 注意，不要在最前面加上/，linux下面会出错
 	}
-
 	@RequestMapping("index2")
 	public String index2(Model model, HttpServletRequest request, HttpServletResponse response) {
 		LogModel temp = LogHolder.getLog();

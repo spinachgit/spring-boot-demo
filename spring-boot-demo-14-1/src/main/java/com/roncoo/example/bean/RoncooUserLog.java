@@ -7,6 +7,11 @@ import javax.persistence.Entity;
 import javax.persistence.GeneratedValue;
 import javax.persistence.Id;
 
+/**
+ * spring-data-jpa:的注解实现
+ * @author:whh
+ * @date:2017年12月1日上午10:18:54
+ */
 @Entity
 public class RoncooUserLog {
 

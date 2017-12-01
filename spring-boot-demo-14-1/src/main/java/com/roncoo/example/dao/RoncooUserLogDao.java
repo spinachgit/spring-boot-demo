@@ -7,6 +7,11 @@ import org.springframework.data.jpa.repository.Query;
 
 import com.roncoo.example.bean.RoncooUserLog;
 
+/**
+ * spring-data-jpa:的实现
+ * @author:whh
+ * @date:2017年12月1日上午10:17:57
+ */
 public interface RoncooUserLogDao extends JpaRepository<RoncooUserLog, Integer>{
 
 	@Query(value="select u from RoncooUserLog u where u.userName=?1")

@@ -6,7 +6,12 @@ import com.roncoo.example.bean.RoncooUserLog;
  * @author wujing
  */
 public interface RoncooUserLogCache {
-
+	/**
+	 * ADD
+	 * @param log
+	 * @return
+	 */
+	RoncooUserLog add(RoncooUserLog log);
 	/**
 	 * 查询
 	 * 
@@ -30,4 +35,5 @@ public interface RoncooUserLogCache {
 	 * @return
 	 */
 	String deleteById(Integer id);
+
 }

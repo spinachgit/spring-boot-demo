@@ -12,6 +12,7 @@ import org.springframework.web.bind.annotation.RestController;
 
 import com.roncoo.example.bean.RoncooUserLog;
 import com.roncoo.example.cache.RoncooUserLogCache;
+import com.roncoo.example.dao.RoncooUserLogDao;
 
 @RestController
 @RequestMapping("/api")
@@ -29,6 +30,14 @@ public class ApiController {
 		return map;
 	}
 	
+	@RequestMapping(value = "/add", method = RequestMethod.GET)
+	public RoncooUserLog add() {
+		RoncooUserLog log = new RoncooUserLog();
+		log.setCreateTime(new Date());
+		log.setUserIp("192.168.210.55");
+		log.setUserName("spinach");
+		return roncooUserLogCache.add(log);
+	}
 	@RequestMapping(value = "/select", method = RequestMethod.GET)
 	public RoncooUserLog get(@RequestParam(defaultValue = "1") Integer id) {
 		return roncooUserLogCache.selectById(id);

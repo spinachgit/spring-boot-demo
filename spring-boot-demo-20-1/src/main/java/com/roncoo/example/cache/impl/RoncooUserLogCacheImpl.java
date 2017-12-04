@@ -12,7 +12,10 @@ import com.roncoo.example.cache.RoncooUserLogCache;
 import com.roncoo.example.dao.RoncooUserLogDao;
 
 /**
- * @author wujing
+ * @CacheConfig:类注解
+ * @Cacheable:注解在使用的方法中使用。
+ * @author:whh
+ * @date:2017年12月4日下午3:19:14
  */
 @CacheConfig(cacheNames = "roncooCache")
 @Repository
@@ -20,12 +23,18 @@ public class RoncooUserLogCacheImpl implements RoncooUserLogCache {
 
 	@Autowired
 	private RoncooUserLogDao roncooUserLogDao;
-
+	
+	@Override
+	public RoncooUserLog add(RoncooUserLog log) {
+		return roncooUserLogDao.save(log);
+	}
+	
 	@Cacheable(key = "#p0")
 	@Override
 	public RoncooUserLog selectById(Integer id) {
 		System.out.println("查询功能，缓存找不到，直接读库, id=" + id);
-		return roncooUserLogDao.findOne(id);
+		RoncooUserLog result = roncooUserLogDao.findOne(id);
+		return result;
 	}
 
 	@CachePut(key = "#p0")

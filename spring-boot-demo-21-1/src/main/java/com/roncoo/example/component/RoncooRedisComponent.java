@@ -26,7 +26,8 @@ public class RoncooRedisComponent {
 	}
 
 	public String get(String key) {
-		return this.stringRedisTemplate.opsForValue().get(key);
+		String resutl = this.stringRedisTemplate.opsForValue().get(key);
+		return resutl;
 	}
 
 	public void del(String key) {

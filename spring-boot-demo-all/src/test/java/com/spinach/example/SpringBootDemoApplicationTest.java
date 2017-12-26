@@ -34,16 +34,14 @@ public class SpringBootDemoApplicationTest {
 	@Test
 	public void getForObject() {
 
-		TestUserLog bean = restTemplateBuilder.build().getForObject("http://localhost:8080/rest/update/{id}",
-				TestUserLog.class, 1);
+		TestUserLog bean = restTemplateBuilder.build().getForObject("http://localhost:8080/rest/update/{id}", TestUserLog.class, 1);
 		System.out.println(bean);
 		Map<String, Object> map = new HashMap<String, Object>();
 		map.put("id", 2);
 		bean = restTemplateBuilder.build().postForObject("http://localhost:8080/rest/update", map, TestUserLog.class);
 		System.out.println(bean);
 
-		String result = restTemplateBuilder.additionalCustomizers(new ProxyCustomizer()).build()
-				.getForObject("http://www.roncoo.com", String.class);
+		String result = restTemplateBuilder.additionalCustomizers(new ProxyCustomizer()).build().getForObject("http://www.roncoo.com", String.class);
 		System.out.println(result);
 
 	}
@@ -57,14 +55,12 @@ public class SpringBootDemoApplicationTest {
 			HttpHost proxy = new HttpHost(proxyHost, proxyPort);
 			HttpClient httpClient = HttpClientBuilder.create().setRoutePlanner(new DefaultProxyRoutePlanner(proxy) {
 				@Override
-				public HttpHost determineProxy(HttpHost target, HttpRequest request, HttpContext context)
-						throws HttpException {
+				public HttpHost determineProxy(HttpHost target, HttpRequest request, HttpContext context) throws HttpException {
 					System.out.println(target.getHostName());
 					return super.determineProxy(target, request, context);
 				}
 			}).build();
-			HttpComponentsClientHttpRequestFactory httpComponentsClientHttpRequestFactory = new HttpComponentsClientHttpRequestFactory(
-					httpClient);
+			HttpComponentsClientHttpRequestFactory httpComponentsClientHttpRequestFactory = new HttpComponentsClientHttpRequestFactory(httpClient);
 			httpComponentsClientHttpRequestFactory.setConnectTimeout(10000);
 			httpComponentsClientHttpRequestFactory.setReadTimeout(60000);
 			restTemplate.setRequestFactory(httpComponentsClientHttpRequestFactory);

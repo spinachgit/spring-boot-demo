@@ -2,7 +2,7 @@
 <html>
 <head lang="en">
 <title>Spring Boot Demo - FreeMarker</title>
-<link href="css/index.css" rel="stylesheet" />
+<link href="/css/index.css" rel="stylesheet" />
 </head>
 <body>
 	<center>
@@ -21,7 +21,7 @@
 	websocket演示
 	<br> 发送消息:
 	<input type="text" id="sendMsg" />
-	<input type="button" onclick="sendMsg()">
+	<input type="button" onclick="sendMsg()" value="发送">
 
 <script type="text/javascript" src="/webjars/jquery/2.1.4/jquery.min.js"></script>
 <script type="text/javascript" src="/js/websocket/sockjs-1.1.1.min.js"></script>

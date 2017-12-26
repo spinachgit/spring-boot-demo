@@ -1,0 +1,96 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<configuration>
+	<!-- 文件输出格式 -->
+	<property name="PATTERN" value="%-12(%d{yyyy-MM-dd HH:mm:ss.SSS}) |-%-5level [%thread] %c [%L] -| %msg%n" />
+	<property name="PATTERN2" value="%date{HH:mm:ss.SSS} [%thread] %-5level %logger{36} - %msg%n" />
+	<property name="PATTERN3" value="%d{yyyy/MM/dd-HH:mm:ss} [%thread] %-5level %logger- %msg%n" />
+	<property name="PATTERN_COLOR" value="%d{yyyy-MM-dd HH:mm:ss.SSS} %highlight(-%5p) %red(${PID:-}) [%15.15t] %green(%-40.40logger{35}) : %m%n" />
+	<!-- dev文件路径 -->
+	<property name="DEV_FILE_PATH" value="/Users/apple/logs/dev" />
+	<!-- test文件路径 -->
+	<property name="TEST_FILE_PATH" value="/Users/apple/logs/test" />
+	<!-- pro文件路径 -->
+	<property name="PRO_FILE_PATH" value="/Users/apple/logs/pro" />
+	
+	<!-- 开发环境 -->
+	<springProfile name="dev">
+		<appender name="CONSOLE" class="ch.qos.logback.core.ConsoleAppender">
+			<withJansi>true</withJansi>
+			<encoder>
+				<pattern>${PATTERN_COLOR}</pattern>
+			</encoder>
+		</appender>
+
+		<logger name="com.spinach.example" level="debug" />
+		<root level="info">
+			<appender-ref ref="CONSOLE" />
+		</root>
+	</springProfile>
+
+	<!-- 测试环境 -->
+	<springProfile name="test">
+		<appender name="CONSOLE" class="ch.qos.logback.core.ConsoleAppender">
+			<withJansi>true</withJansi>
+			<encoder>
+				<pattern>${PATTERN_COLOR}</pattern>
+			</encoder>
+		</appender>
+		<!-- 每天产生一个文件 -->
+		<appender name="TEST-FILE" class="ch.qos.logback.core.rolling.RollingFileAppender">
+			<!-- 文件路径 aaaaa aaa -->
+			<file>${TEST_FILE_PATH}/info.log</file>
+			<rollingPolicy class="ch.qos.logback.core.rolling.SizeAndTimeBasedRollingPolicy">
+				<!-- 文件名称 -->
+				<fileNamePattern>${TEST_FILE_PATH}/info.%d{yyyy-MM-dd}.%i.log</fileNamePattern>
+				<!-- 文件最大保存历史数量 -->
+				<maxFileSize>1MB</maxFileSize>
+				<totalSizeCap>1MB</totalSizeCap>
+			</rollingPolicy>
+			<layout class="ch.qos.logback.classic.PatternLayout">
+				<pattern>${PATTERN}</pattern>
+			</layout>
+		</appender>
+		<appender name="TEST-FILE2" class="ch.qos.logback.core.rolling.RollingFileAppender">
+			<!-- 文件路径 -->
+			<file>${TEST_FILE_PATH}/debug.log</file>
+			<rollingPolicy class="ch.qos.logback.core.rolling.SizeAndTimeBasedRollingPolicy">
+				<!-- 文件名称 -->
+				<fileNamePattern>${TEST_FILE_PATH}/debug.%d{yyyy-MM-dd}.%i.log</fileNamePattern>
+				<maxFileSize>1MB</maxFileSize>
+				<maxHistory>5</maxHistory>
+				<totalSizeCap>2MB</totalSizeCap>
+			</rollingPolicy>
+			<!-- <triggeringPolicy class="ch.qos.logback.core.rolling.SizeBasedTriggeringPolicy">
+				<maxFileSize>1MB</maxFileSize>
+			</triggeringPolicy> -->
+			<layout class="ch.qos.logback.classic.PatternLayout">
+				<pattern>${PATTERN}</pattern>
+			</layout>
+		</appender>
+		<logger name="com.spinach.example" level="debug" additivity="false" />
+		<root level="info">
+			<appender-ref ref="TEST-FILE" />
+		</root>
+		<root level="debug">
+			<appender-ref ref="CONSOLE" />
+			<appender-ref ref="TEST-FILE2" />
+		</root>
+	</springProfile>
+
+	<!-- 生产环境 -->
+	<springProfile name="prod">
+		<appender name="PROD_FILE" class="ch.qos.logback.core.rolling.RollingFileAppender">
+			<file>${PRO_FILE_PATH}</file>
+			<rollingPolicy class="ch.qos.logback.core.rolling.TimeBasedRollingPolicy">
+				<fileNamePattern>${PRO_FILE_PATH}/error.%d{yyyy-MM-dd}.log</fileNamePattern>
+			</rollingPolicy>
+			<layout class="ch.qos.logback.classic.PatternLayout">
+				<pattern>${PATTERN}</pattern>
+			</layout>
+		</appender>
+
+		<root level="error">
+			<appender-ref ref="PROD_FILE" />
+		</root>
+	</springProfile>
+</configuration>

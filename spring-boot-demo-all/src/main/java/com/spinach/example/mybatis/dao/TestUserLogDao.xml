@@ -1,0 +1,77 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd" >
+<mapper namespace="com.spinach.example.mybatis.dao.TestUserLogDao" >
+
+    <insert id="insert" parameterType="com.spinach.example.mybatis.entity.TestUserLog" >
+        insert into test_user_log (id, create_time, user_ip, 
+            user_name)
+        values (#{id,jdbcType=INTEGER}, #{createTime,jdbcType=TIMESTAMP}, #{userIp,jdbcType=VARCHAR}, 
+            #{userName,jdbcType=VARCHAR})
+    </insert>
+
+    <resultMap id="commonEntity" type="com.spinach.example.mybatis.entity.TestUserLog" >
+        <id column="id" property="id" jdbcType="INTEGER" />
+        <result column="create_time" property="createTime" jdbcType="TIMESTAMP" />
+        <result column="user_ip" property="userIp" jdbcType="VARCHAR" />
+        <result column="user_name" property="userName" jdbcType="VARCHAR" />
+    </resultMap>
+
+    <delete id="delete" parameterType="int" >
+        delete from test_user_log
+        where id = #{id,jdbcType=INTEGER}
+    </delete>
+
+    <update id="update" parameterType="com.spinach.example.mybatis.entity.TestUserLog" >
+        update test_user_log
+        <set >
+            <include refid="setCondition" />
+        </set>
+        where id = #{id,jdbcType=INTEGER}
+    </update>
+
+    <select id="selectOne" resultMap="commonEntity" parameterType="map" >
+        select
+        <include refid="entityColumn" />
+        from test_user_log where id = #{id,jdbcType=INTEGER}
+    </select>
+
+    <select id="selectList" resultMap="commonEntity" parameterType="map" >
+        select
+        <include refid="entityColumn" />
+        from test_user_log
+        <include refid="whereCondition" />
+    </select>
+
+    <sql id="entityColumn" >
+        id,create_time,user_ip,user_name
+    </sql>
+
+    <sql id="setCondition" >
+        <if test="id != null and id != ''" >
+            id = #{id,jdbcType=INTEGER},
+        </if>
+        <if test="createTime != null " >
+            create_time = #{createTime,jdbcType=TIMESTAMP},
+        </if>
+        <if test="userIp != null and userIp != ''" >
+            user_ip = #{userIp,jdbcType=VARCHAR},
+        </if>
+        <if test="userName != null and userName != ''" >
+            user_name = #{userName,jdbcType=VARCHAR},
+        </if>
+    </sql>
+
+    <sql id="whereCondition" >
+        <where >
+            <if test="createTime != null " >
+                 and create_time = #{createTime,jdbcType=TIMESTAMP}
+            </if>
+            <if test="userIp != null and userIp != ''" >
+                 and user_ip = #{userIp,jdbcType=VARCHAR}
+            </if>
+            <if test="userName != null and userName != ''" >
+                 and user_name = #{userName,jdbcType=VARCHAR}
+            </if>
+        </where>
+    </sql>
+</mapper>

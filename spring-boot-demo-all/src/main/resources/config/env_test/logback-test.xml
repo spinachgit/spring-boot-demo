@@ -1,0 +1,60 @@
+<?xml version="1.0" encoding="utf-8"?>
+<configuration>
+	<!-- 自行配置 -->
+	<!-- 文件输出格式 -->
+	<property name="PATTERN" value="%-12(%d{yyyy-MM-dd HH:mm:ss.SSS}) |-%-5level [%thread] %c [%L] -| %msg%n" />
+	<property name="PATTERN2" value="%date{HH:mm:ss.SSS} [%thread] %-5level %logger{36} - %msg%n" />
+	<property name="PATTERN3" value="%d{yyyy/MM/dd-HH:mm:ss} [%thread] %-5level %logger- %msg%n" />
+	<property name="PATTERN_COLOR" value="%d{yyyy-MM-dd HH:mm:ss.SSS} %highlight(-%5p) %red(${PID:-}) [%15.15t] %green(%-40.40logger{35}) : %m%n" />
+	<!-- test文件路径 -->
+	<property name="TEST_FILE_PATH" value="${log.test}" />
+
+	<appender name="CONSOLE" class="ch.qos.logback.core.ConsoleAppender">
+		<withJansi>true</withJansi>
+		<encoder>
+			<pattern>${PATTERN_COLOR}</pattern>
+		</encoder>
+	</appender>
+		<!-- 每天产生一个文件 -->
+	<appender name="TEST-FILE" class="ch.qos.logback.core.rolling.RollingFileAppender">
+			<!-- 文件路径 aaaaa aaa -->
+		<file>${TEST_FILE_PATH}/info.log</file>
+		<rollingPolicy class="ch.qos.logback.core.rolling.SizeAndTimeBasedRollingPolicy">
+				<!-- 文件名称 -->
+			<fileNamePattern>${TEST_FILE_PATH}/info.%d{yyyy-MM-dd}.%i.log</fileNamePattern>
+				<!-- 文件最大保存历史数量 -->
+			<maxFileSize>1MB</maxFileSize>
+			<totalSizeCap>20MB</totalSizeCap>
+		</rollingPolicy>
+		<layout class="ch.qos.logback.classic.PatternLayout">
+			<pattern>${PATTERN}</pattern>
+		</layout>
+	</appender>
+	<appender name="TEST-FILE2" class="ch.qos.logback.core.rolling.RollingFileAppender">
+			<!-- 文件路径 -->
+		<file>${TEST_FILE_PATH}/debug.log</file>
+		<rollingPolicy class="ch.qos.logback.core.rolling.SizeAndTimeBasedRollingPolicy">
+				<!-- 文件名称 -->
+			<fileNamePattern>${TEST_FILE_PATH}/debug.%d{yyyy-MM-dd}.%i.log</fileNamePattern>
+			<maxFileSize>1MB</maxFileSize>
+			<maxHistory>5</maxHistory>
+			<totalSizeCap>20MB</totalSizeCap>
+		</rollingPolicy>
+			<!-- <triggeringPolicy class="ch.qos.logback.core.rolling.SizeBasedTriggeringPolicy">
+				<maxFileSize>1MB</maxFileSize>
+			</triggeringPolicy> -->
+		<layout class="ch.qos.logback.classic.PatternLayout">
+			<pattern>${PATTERN}</pattern>
+		</layout>
+	</appender>
+	<logger name="com.spinach.example" level="debug" additivity="false" />
+	<root level="info">
+		<appender-ref ref="TEST-FILE" />
+		<appender-ref ref="CONSOLE" />
+	</root>
+	<!-- <root level="debug">
+		<appender-ref ref="CONSOLE" />
+		<appender-ref ref="TEST-FILE2" />
+	</root> -->
+
+</configuration>

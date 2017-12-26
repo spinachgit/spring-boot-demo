@@ -1,0 +1,31 @@
+<?xml version="1.0" encoding="utf-8"?>
+<configuration>
+	<!-- 文件输出格式 -->
+	<property name="PATTERN" value="%-12(%d{yyyy-MM-dd HH:mm:ss.SSS}) |-%-5level [%thread] %c [%L] -| %msg%n" />
+	<property name="PATTERN2" value="%date{HH:mm:ss.SSS} [%thread] %-5level %logger{36} - %msg%n" />
+	<property name="PATTERN3" value="%d{yyyy/MM/dd-HH:mm:ss} [%thread] %-5level %logger- %msg%n" />
+	<property name="PATTERN_COLOR" value="%d{yyyy-MM-dd HH:mm:ss.SSS} %highlight(-%5p) %red(${PID:-}) [%15.15t] %green(%-40.40logger{35}) : %m%n" />
+	<!-- dev文件路径 -->
+	<property name="DEV_FILE_PATH" value="${log.dev}" />
+	<!-- test文件路径 -->
+	<property name="TEST_FILE_PATH" value="${log.dev}" />
+	<!-- pro文件路径 -->
+	<property name="PRO_FILE_PATH" value="${log.pro}" />
+		
+	<!-- 开发环境 -->
+	<appender name="CONSOLE" class="ch.qos.logback.core.ConsoleAppender">
+		<withJansi>true</withJansi>
+		<encoder>
+			<pattern>${PATTERN_COLOR}</pattern>
+		</encoder>
+	</appender>
+
+	<logger name="com.spinach.example" level="debug" />
+	<root level="info">
+		<appender-ref ref="CONSOLE" />
+	</root>
+		<!-- <logger name="com.spinach.example" level="debug" />
+		<root level="info">
+			<appender-ref ref="CONSOLE" />
+		</root> -->
+</configuration>

@@ -40,12 +40,12 @@ public class JdbcTemplateController {
 
 	@RequestMapping(value = "/update", method = RequestMethod.GET)
 	public int update(@RequestParam(defaultValue = "1") Integer id) {
-		return jdbcTemplateService.update();
+		return jdbcTemplateService.update(id);
 	}
 
 	@RequestMapping(value = "/del", method = RequestMethod.GET)
 	public int del(@RequestParam(defaultValue = "1") Integer id) {
-		return jdbcTemplateService.delete();
+		return jdbcTemplateService.delete(id);
 	}
 	
 	@RequestMapping(value = "/selectpage", method = RequestMethod.GET)

@@ -9,14 +9,15 @@ public interface JdbcTemplateService {
 
 	int insert();
 
-	int delete();
+	int delete(Integer id);
 
-	int update();
+	int update(Integer id);
 
 	List<TestUser> selectAll();
 	
 	TestUser selectById(Integer id);
 
 	Page<TestUser> queryForPage();
+
 
 }

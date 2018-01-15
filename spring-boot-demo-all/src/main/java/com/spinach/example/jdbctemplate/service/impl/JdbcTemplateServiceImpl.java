@@ -27,14 +27,14 @@ public class JdbcTemplateServiceImpl implements JdbcTemplateService{
 		return result;
 	}
 	@Override
-	public int delete() {
-		int result = testUserDao.deleteById(1);
+	public int delete(Integer id ) {
+		int result = testUserDao.deleteById(id);
 		return result;
 	}
 	@Override
-	public int update() {
+	public int update(Integer id ) {
 		TestUser roncooUser = new TestUser();
-		roncooUser.setId(2);
+		roncooUser.setId(id);
 		roncooUser.setUserName("测试2");
 		roncooUser.setCreateTime(new Date());
 		int result = testUserDao.updateById(roncooUser);

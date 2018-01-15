@@ -3,13 +3,15 @@ package com.spinach.example.mybatis.entity;
 import java.sql.Timestamp;
 import java.util.Date;
 
+import javax.persistence.Id;
+
 /**
  * Entity实体类:
  * 
  * @author spinach
  */
 public class TestUser {
-
+	@Id
 	private Integer id;
 
 	private Date createTime;

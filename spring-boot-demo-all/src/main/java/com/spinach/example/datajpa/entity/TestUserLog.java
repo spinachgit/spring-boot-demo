@@ -24,6 +24,11 @@ public class TestUserLog implements Serializable{
 
 	@Column
 	private String userIp;
+	/**
+	 * 经过测试：jpa可以动态的增加字段，增加完成之后，再删除实体，JPA没有删除
+	 */
+	@Column
+	private String addCol1;
 
 	public Integer getId() {
 		return id;
@@ -55,6 +60,14 @@ public class TestUserLog implements Serializable{
 
 	public void setUserIp(String userIp) {
 		this.userIp = userIp;
+	}
+
+	public String getAddCol1() {
+		return addCol1;
+	}
+
+	public void setAddCol1(String addCol1) {
+		this.addCol1 = addCol1;
 	}
 
 	@Override

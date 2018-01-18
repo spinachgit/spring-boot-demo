@@ -16,6 +16,7 @@ public class WebSecurityConfig extends WebSecurityConfigurerAdapter {
 				.anyRequest().authenticated().and().formLogin().loginPage("/login") // 2登陆页面路径为/login
 				.defaultSuccessUrl("/chat") // 3登陆成功转向chat页面
 				.permitAll().and().logout().permitAll();
+		http.csrf().disable();//在原本的配置文件下添加这行代码，禁用security的csrf 
 	}
 
 	// 4在内存中配置两个用户 admin 和 test ,密码和用户名一致,角色是 USER

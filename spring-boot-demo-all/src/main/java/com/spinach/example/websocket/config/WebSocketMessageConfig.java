@@ -16,7 +16,7 @@ import org.springframework.web.socket.config.annotation.StompEndpointRegistry;
  */
 @Configuration
 @EnableWebSocketMessageBroker
-public class WebSocketConfig extends AbstractWebSocketMessageBrokerConfigurer {
+public class WebSocketMessageConfig extends AbstractWebSocketMessageBrokerConfigurer {
 	
 	/**
 	 * endPoint 注册协议节点,并映射指定的URl

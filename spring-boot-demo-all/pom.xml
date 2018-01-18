@@ -18,6 +18,8 @@
 	</parent>
 
 	<properties>
+		<mybatisplus-spring-boot-starter.version>1.0.5</mybatisplus-spring-boot-starter.version>
+		<mybatisplus.version>2.1.8</mybatisplus.version>
 		<project.build.sourceEncoding>UTF-8</project.build.sourceEncoding>
 		<project.reporting.outputEncoding>UTF-8</project.reporting.outputEncoding>
 		<java.version>1.8</java.version>
@@ -29,7 +31,7 @@
 			<artifactId>spring-boot-devtools</artifactId>
 		</dependency>
 
-		<!-- 数据库 -->
+		<!-- +++++++++++++++++++++++数据库 start +++++++++++++++++++++++++++ -->
 		<dependency>
 			<groupId>mysql</groupId>
 			<artifactId>mysql-connector-java</artifactId>
@@ -51,13 +53,13 @@
 			<groupId>org.springframework.boot</groupId>
 			<artifactId>spring-boot-starter-data-mongodb</artifactId>
 		</dependency>
-		
 		<dependency>
 			<groupId>de.flapdoodle.embed</groupId>
 			<artifactId>de.flapdoodle.embed.mongo</artifactId>
 		</dependency>
-
-		<dependency>
+		<!-- mybatis -->
+		<!-- 有了mybatis-plus之后，就不用引用mybatis的配置了 -->
+		<!-- <dependency>
 			<groupId>org.mybatis.spring.boot</groupId>
 			<artifactId>mybatis-spring-boot-starter</artifactId>
 			<version>1.3.0</version>
@@ -66,8 +68,21 @@
 			<groupId>com.github.pagehelper</groupId>
 			<artifactId>pagehelper-spring-boot-starter</artifactId>
 			<version>1.1.1</version>
+		</dependency> -->
+		<!-- mybatis-plus begin -->
+		<dependency>
+			<groupId>com.baomidou</groupId>
+			<artifactId>mybatisplus-spring-boot-starter</artifactId>
+			<version>${mybatisplus-spring-boot-starter.version}</version>
 		</dependency>
-
+		<dependency>
+			<groupId>com.baomidou</groupId>
+			<artifactId>mybatis-plus</artifactId>
+			<version>${mybatisplus.version}</version>
+		</dependency>
+		<!-- mybatis-plus end -->
+		<!-- +++++++++++++++++++++++数据库 end +++++++++++++++++++++++++++ -->
+		
 		<dependency>
 			<groupId>org.apache.httpcomponents</groupId>
 			<artifactId>httpclient</artifactId>
@@ -147,6 +162,14 @@
 			<artifactId>shiro-spring-boot-web-starter</artifactId>
 			<version>1.4.0</version>
 		</dependency> -->
+		
+		
+		<!-- 模板引擎 -->
+		<dependency>
+		    <groupId>org.apache.velocity</groupId>
+		    <artifactId>velocity-engine-core</artifactId>
+		    <version>2.0</version>
+		</dependency>
 	</dependencies>
 
 	<build>

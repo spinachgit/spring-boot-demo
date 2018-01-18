@@ -29,6 +29,7 @@ public class JpaApplicationTest {
 		entity.setUserName("春秋");
 		entity.setUserIp("192.168.0.1");
 		entity.setCreateTime(new Date());
+		//entity.setAddCol1("add");
 		jpaDao.save(entity);
 	}
 

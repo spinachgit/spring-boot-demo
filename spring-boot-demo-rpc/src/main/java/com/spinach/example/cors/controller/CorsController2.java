@@ -10,9 +10,9 @@ import org.springframework.web.bind.annotation.RequestMethod;
 import org.springframework.web.bind.annotation.RequestParam;
 import org.springframework.web.bind.annotation.RestController;
 
-import com.spinach.example.bean.TestUserLog;
+import com.spinach.example.base.bean.TestUserLog;
+import com.spinach.example.base.component.TestJavaMailComponent;
 import com.spinach.example.cache.service.TestUserLogCache;
-import com.spinach.example.component.TestJavaMailComponent;
 
 /**
  * 类级别的跨域，表示当前类下的所有接口都可以跨域。

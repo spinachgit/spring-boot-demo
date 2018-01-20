@@ -7,9 +7,9 @@ import org.springframework.cache.annotation.CachePut;
 import org.springframework.cache.annotation.Cacheable;
 import org.springframework.stereotype.Repository;
 
-import com.spinach.example.bean.TestUserLog;
+import com.spinach.example.base.bean.TestUserLog;
+import com.spinach.example.base.dao.TestUserLogDao;
 import com.spinach.example.cache.service.TestUserLogCache;
-import com.spinach.example.dao.TestUserLogDao;
 
 /**
  * redis提供缓存：相关引用

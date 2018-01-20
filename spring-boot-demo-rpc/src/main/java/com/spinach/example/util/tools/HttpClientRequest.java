@@ -10,7 +10,7 @@ import java.util.Map;
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
 
-import com.spinach.example.service.UserService;
+import com.spinach.example.base.service.UserService;
 
 public class HttpClientRequest {
 

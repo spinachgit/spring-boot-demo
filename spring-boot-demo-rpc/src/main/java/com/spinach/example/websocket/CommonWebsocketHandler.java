@@ -15,7 +15,7 @@ import org.springframework.util.StringUtils;
 import org.springframework.web.socket.TextMessage;
 import org.springframework.web.socket.WebSocketSession;
 
-import com.spinach.example.bean.TestUser;
+import com.spinach.example.base.bean.TestUser;
 import com.spinach.example.util.tools.GsonUtils;
 
 @Component

@@ -1,6 +1,6 @@
 package com.spinach.example.cache.service;
 
-import com.spinach.example.bean.TestUserLog;
+import com.spinach.example.base.bean.TestUserLog;
 
 /**
  * @author whh

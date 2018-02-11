@@ -121,10 +121,7 @@
 			<groupId>org.springframework.boot</groupId>
 			<artifactId>spring-boot-starter-websocket</artifactId>
 		</dependency>
-		<dependency>
-			<groupId>com.google.code.gson</groupId>
-			<artifactId>gson</artifactId>
-		</dependency>
+
 		<dependency>
 			<groupId>net.sf.json-lib</groupId>
 			<artifactId>json-lib</artifactId>
@@ -143,14 +140,44 @@
 		</dependency>
 		<!-- 二维码：zxing qrcode都可以 -->
 		<dependency>
-		    <groupId>com.google.zxing</groupId>
-		    <artifactId>core</artifactId>
-		    <version>3.3.1</version>
+			<groupId>com.google.zxing</groupId>
+			<artifactId>core</artifactId>
+			<version>3.3.1</version>
 		</dependency>
 		<dependency>
-		    <groupId>net.qrcode</groupId>
-		    <artifactId>qrcode</artifactId>
-		    <version>1.0</version>
+			<groupId>net.qrcode</groupId>
+			<artifactId>qrcode</artifactId>
+			<version>1.0</version>
+		</dependency>
+		<!-- cxf：serve client  -->
+		<dependency>
+			<groupId>org.apache.cxf</groupId>
+			<artifactId>cxf-spring-boot-starter-jaxws</artifactId>
+			<version>3.1.12</version>
+		</dependency>
+		<dependency>
+			<groupId>org.codehaus.woodstox</groupId>
+			<artifactId>stax2-api</artifactId>
+			<version>3.1.4</version>
+		</dependency>
+		<!-- 注意上楼的区别 -->
+		<!-- <dependency>
+			<groupId>org.apache.cxf</groupId>
+		          <artifactId>cxf-spring-boot-starter-jaxrs</artifactId>
+		          <version>3.1.12</version>
+		</dependency> -->
+		<dependency>
+			<groupId>com.google.code.gson</groupId>
+			<artifactId>gson</artifactId>
+		</dependency>
+		<!-- restful框架和springmvc类似 -->
+		<dependency>
+			<groupId>org.springframework.boot</groupId>
+			<artifactId>spring-boot-starter-jersey</artifactId>
+		</dependency>
+		<dependency>
+			<groupId>org.springframework.boot</groupId>
+			<artifactId>spring-boot-starter-web-services</artifactId>
 		</dependency>
 	</dependencies>
 
@@ -165,6 +192,26 @@
 					</jvmArguments>
 				</configuration> -->
 			</plugin>
+			
+			<!-- 生成实体类插件-->
+			<!-- <plugin>
+				<groupId>org.codehaus.mojo</groupId>
+				<artifactId>jaxb2-maven-plugin</artifactId>
+				<version>1.6</version>
+				<executions>
+					<execution>
+						<id>xjc</id>
+						<goals>
+							<goal>xjc</goal>
+						</goals>
+					</execution>
+				</executions>
+				<configuration>
+					<schemaDirectory>${project.basedir}/src/main/resources/</schemaDirectory>
+					<outputDirectory>${project.basedir}/src/main/java</outputDirectory>
+					<clearOutputDir>false</clearOutputDir>
+				</configuration>
+			</plugin> -->
 		</plugins>
 	</build>
 </project>

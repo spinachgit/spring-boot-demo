@@ -13,7 +13,7 @@ import com.spinach.example.webservice.cxf.server.CxfServices;
 public class CxfServicesClient {
 	public static void main(String[] args) {
 		CxfServicesClient client = new CxfServicesClient();
-		client.method1();
+		//client.method1();
 		client.method2();
 	}
 	
@@ -48,9 +48,10 @@ public class CxfServicesClient {
     public void method2() {
         // 创建动态客户端
         JaxWsDynamicClientFactory dcf = JaxWsDynamicClientFactory.newInstance();
-        Client client = dcf.createClient("http://localhost:8080/cxf/cxfServices?wsdl");
+        //Client client = dcf.createClient("http://localhost:8080/cxf/cxfServices?wsdl");
+        Client client = dcf.createClient("http://localhost:8080/study_cxf_server/services/hello?wsdl");
         // 需要密码的情况需要加上用户名和密码
-         client.getOutInterceptors().add(new ClientLoginInterceptor("admin","pass"));
+        //client.getOutInterceptors().add(new ClientLoginInterceptor("admin","pass"));
         Object[] objects = new Object[0];
         try {
             // invoke("方法名",参数1,参数2,参数3....);

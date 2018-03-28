@@ -30,7 +30,13 @@ public class CorsController {
 		component.sendMail(email);
 		return "success";
 	}
-	/**
+	
+	@RequestMapping(value = "", method = {RequestMethod.POST,RequestMethod.GET})
+	public String cors() {
+		return "cors";
+	}
+	
+	/**bvcxz
 	 * 测试：仅仅使用@CrossOrigin不能跨域访问
 	 * RequestMapping:不指定method的时候，默认所以方法都支持。
 	 * @author:whh

@@ -4,11 +4,11 @@
 	<modelVersion>4.0.0</modelVersion>
 
 	<groupId>com.roncoo.education</groupId>
-	<artifactId>spring-boot-demo-6-1</artifactId>
+	<artifactId>spring-boot-demo-06-freemarker</artifactId>
 	<version>0.0.1-SNAPSHOT</version>
 	<packaging>jar</packaging>
 
-	<name>spring-boot-demo-6-1</name>
+	<name>spring-boot-demo-06-freemarker</name>
 	<description>WEB应用开发-模板引擎FreeMarker</description>
 
 	<parent>

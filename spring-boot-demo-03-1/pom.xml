@@ -4,11 +4,11 @@
 	<modelVersion>4.0.0</modelVersion>
 
 	<groupId>com.roncoo.education</groupId>
-	<artifactId>spring-boot-demo-03-1</artifactId>
+	<artifactId>spring-boot-demo-03-properties</artifactId>
 	<version>0.0.1-SNAPSHOT</version>
 	<packaging>jar</packaging>
 
-	<name>spring-boot-demo-03-1</name>
+	<name>spring-boot-demo-03-properties</name>
 	<description>配置文件详解：Properties</description>
 
 	<parent>

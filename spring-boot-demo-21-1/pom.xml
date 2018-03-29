@@ -4,12 +4,12 @@
 	<modelVersion>4.0.0</modelVersion>
 
 	<groupId>com.roncoo.education</groupId>
-	<artifactId>spring-boot-demo-21-1</artifactId>
+	<artifactId>spring-boot-demo-21-activemq</artifactId>
 	<version>0.0.1-SNAPSHOT</version>
 	<packaging>jar</packaging>
 
-	<name>spring-boot-demo-21-1</name>
-	<description>Demo project for Spring Boot</description>
+	<name>spring-boot-demo-21-activemq</name>
+	<description>使用异步消息服务-JMS（ActiveMQ）</description>
 
 	<parent>
 		<groupId>org.springframework.boot</groupId>

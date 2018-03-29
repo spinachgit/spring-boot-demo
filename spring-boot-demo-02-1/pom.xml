@@ -3,11 +3,11 @@
 	<modelVersion>4.0.0</modelVersion>
 
 	<groupId>com.roncoo.education</groupId>
-	<artifactId>spring-boot-demo-02-1</artifactId>
+	<artifactId>spring-boot-demo-02-restful</artifactId>
 	<version>0.0.1-SNAPSHOT</version>
 	<packaging>jar</packaging>
 
-	<name>spring-boot-demo-02-1</name>
+	<name>spring-boot-demo-02-restful</name>
 	<description>RESTfull API简单项目的快速搭建</description>
   
 	<parent>

@@ -4,12 +4,12 @@
 	<modelVersion>4.0.0</modelVersion>
 
 	<groupId>com.roncoo.education</groupId>
-	<artifactId>spring-boot-demo-13-1</artifactId>
+	<artifactId>spring-boot-demo-13-jdbc</artifactId>
 	<version>0.0.1-SNAPSHOT</version>
 	<packaging>jar</packaging>
 
-	<name>spring-boot-demo-13-1</name>
-	<description>Demo project for Spring Boot</description>
+	<name>spring-boot-demo-13-jdbc</name>
+	<description>SQL关系型数据库-JdbcTemplate</description>
 
 	<parent>
 		<groupId>org.springframework.boot</groupId>

@@ -4,12 +4,12 @@
 	<modelVersion>4.0.0</modelVersion>
 
 	<groupId>com.roncoo.education</groupId>
-	<artifactId>spring-boot-demo-8-1</artifactId>
+	<artifactId>spring-boot-demo-08-jsp</artifactId>
 	<version>0.0.1-SNAPSHOT</version>
 	<packaging>war</packaging>
 
-	<name>spring-boot-demo-8-1</name>
-	<description>Demo project for Spring Boot</description>
+	<name>spring-boot-demo-08-jsp</name>
+	<description>模板引擎jsp</description>
 
 	<parent>
 		<groupId>org.springframework.boot</groupId>

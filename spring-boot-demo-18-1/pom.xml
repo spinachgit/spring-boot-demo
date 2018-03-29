@@ -4,12 +4,12 @@
 	<modelVersion>4.0.0</modelVersion>
 
 	<groupId>com.roncoo.education</groupId>
-	<artifactId>spring-boot-demo-18-1</artifactId>
+	<artifactId>spring-boot-demo-18-mongo</artifactId>
 	<version>0.0.1-SNAPSHOT</version>
 	<packaging>jar</packaging>
 
-	<name>spring-boot-demo-18-1</name>
-	<description>Demo project for Spring Boot</description>
+	<name>spring-boot-demo-18-mongo</name>
+	<description>使用NoSQL数据库-mongodb：spring-data-mongo</description>
 
 	<parent>
 		<groupId>org.springframework.boot</groupId>
